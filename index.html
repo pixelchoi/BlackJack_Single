@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>럭셔리 싱글플레이어 블랙잭</title>
+    <title>럭셔리 싱글플레이어 블랙잭 (배팅 시스템)</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
         <header>
             <h1>🃏 BLACKJACK</h1>
-            <p class="subtitle">딜러를 꺾고 21을 완성해보세요!</p>
+            <p class="subtitle">배팅을 하고 딜러와 진검승부를 겨루세요!</p>
         </header>
+
+        <!-- 자산 및 배팅 정보 보드 -->
+        <div class="finance-board">
+            <div class="finance-box">
+                <span class="label">내 보유 칩</span>
+                <span id="player-balance" class="value">$1,000</span>
+            </div>
+            <div class="finance-box">
+                <span class="label">현재 배팅액</span>
+                <span id="current-bet" class="value bet-value">$0</span>
+            </div>
+        </div>
 
         <!-- 게임 보드 -->
         <div class="game-board">
@@ -23,7 +35,7 @@
 
             <!-- 메시지 센터 -->
             <div class="message-center">
-                <p id="game-message">"게임 시작" 버튼을 눌러 승부를 시작하세요!</p>
+                <p id="game-message">칩을 선택하여 배팅한 후 "게임 시작"을 누르세요!</p>
             </div>
 
             <!-- 플레이어 구역 -->
@@ -33,7 +45,15 @@
             </div>
         </div>
 
-        <!-- 컨트롤러 버튼 -->
+        <!-- 배팅 전용 칩 컨트롤러 -->
+        <div id="betting-controls" class="betting-zone">
+            <button class="chip chip-10" onclick="addBet(10)">$10</button>
+            <button class="chip chip-50" onclick="addBet(50)">$50</button>
+            <button class="chip chip-10" style="background:#d63031;" onclick="addBet(100)">$100</button>
+            <button class="btn btn-clear" onclick="clearBet()">배팅 취소</button>
+        </div>
+
+        <!-- 게임 플레이 컨트롤러 버튼 -->
         <div class="controls">
             <button id="btn-start" class="btn btn-start">게임 시작</button>
             <button id="btn-hit" class="btn btn-action" disabled>Hit (카드 받기)</button>
