@@ -23,13 +23,13 @@ body {
     background: rgba(0, 0, 0, 0.4);
     border: 4px solid #c5a880;
     border-radius: 15px;
-    padding: 30px;
+    padding: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.7);
     text-align: center;
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     color: #c5a880;
     letter-spacing: 4px;
     margin-bottom: 5px;
@@ -37,28 +37,61 @@ header h1 {
 }
 
 .subtitle {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #a0a0a0;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
+}
+
+/* 💰 금융 정보 보드 */
+.finance-board {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #c5a880;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.finance-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.finance-box .label {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    margin-bottom: 4px;
+}
+
+.finance-box .value {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+.finance-box .bet-value {
+    color: #f1c40f;
 }
 
 /* 게임 보드 레이아웃 */
 .game-board {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .area {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
-    padding: 20px;
-    min-height: 180px;
+    padding: 15px;
+    min-height: 160px;
 }
 
 .area h2 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,14 +105,14 @@ header h1 {
     padding: 2px 10px;
     border-radius: 20px;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
-/* 카드 카드 애니메이션 및 스타일 */
+/* 카드 스타일 및 애니메이션 */
 .card-display {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
     min-height: 110px;
 }
@@ -90,7 +123,7 @@ header h1 {
     background: white;
     color: black;
     border-radius: 6px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     display: flex;
     flex-direction: column;
@@ -102,27 +135,14 @@ header h1 {
     animation: dealCard 0.3s ease-out forwards;
 }
 
-/* 카드 오픈 애니메이션 */
 @keyframes dealCard {
-    from {
-        transform: translateY(-50px) rotate(-10deg);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-/* 카드 색상 */
-.card.hearts, .card.diamonds {
-    color: #d63031;
-}
-.card.spades, .card.clubs {
-    color: #2d3436;
-}
+.card.hearts, .card.diamonds { color: #d63031; }
+.card.spades, .card.clubs { color: #2d3436; }
 
-/* 뒷면 숨겨진 카드 */
 .card.back {
     background: linear-gradient(135deg, #741515 25%, #4a0e0e 100%);
     border: 2px solid white;
@@ -131,7 +151,7 @@ header h1 {
 .card.back::after {
     content: "♠";
     color: rgba(255,255,255,0.2);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -140,22 +160,57 @@ header h1 {
 
 /* 메시지 센터 */
 .message-center {
-    margin: 10px 0;
-    padding: 12px;
+    padding: 10px;
     background: rgba(197, 168, 128, 0.15);
     border-radius: 5px;
     border-left: 5px solid #c5a880;
 }
 
 #game-message {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #fffbdf;
 }
 
+/* 🪙 배팅 칩 구역 */
+.betting-zone {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.chip {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px dashed white;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.1s ease;
+}
+.chip:active { transform: scale(0.9); }
+.chip-10 { background: #2980b9; }
+.chip-50 { background: #27ae60; }
+
+.btn-clear {
+    background: #7f8c8d;
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 15px;
+}
+
 /* 컨트롤러 및 버튼 */
 .controls {
-    margin-top: 25px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -171,16 +226,9 @@ header h1 {
     transition: all 0.2s ease;
 }
 
-.btn-start {
-    background: #c5a880;
-    color: #111;
-}
-.btn-start:hover { background: #e2c49b; }
-
-.btn-action {
-    background: #34495e;
-    color: white;
-}
+.btn-start { background: #c5a880; color: #111; }
+.btn-start:hover:not([disabled]) { background: #e2c49b; }
+.btn-action { background: #34495e; color: white; }
 .btn-action:hover:not([disabled]) { background: #4b6584; }
 
 .btn:disabled {
